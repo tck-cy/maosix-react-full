@@ -1,3 +1,121 @@
+src/
+├── components/
+│   ├── Navbar.js
+│   ├── Footer.js
+│   ├── Hero.js
+│   ├── ProductCard.js
+│   └── SectionHeader.js
+├── pages/
+│   ├── Home.js
+│   ├── About.js
+│   ├── Products.js
+│   ├── Contact.js
+│   └── ThankYou.js
+├── assets/
+│   ├── images/
+│   └── styles/
+│       ├── main.css
+│       └── custom.scss
+├── App.js
+└── index.js
+
+
+Database Maintenance Plan
+Weekly Tasks
+Backup Verification:
+
+sql
+Copy
+-- Check backup status
+SELECT 
+  TABLE_SCHEMA,
+  TABLE_NAME,
+  UPDATE_TIME
+FROM information_schema.TABLES
+WHERE TABLE_SCHEMA = 'maosix_management'
+ORDER BY UPDATE_TIME DESC;
+User Activity Review:
+
+sql
+Copy
+-- Check recent user activity
+SELECT 
+  u.username,
+  COUNT(al.id) AS actions,
+  MAX(al.created_at) AS last_action
+FROM users u
+LEFT JOIN audit_log al ON u.id = al.user_id
+GROUP BY u.id
+ORDER BY last_action DESC;
+Monthly Tasks
+Database Optimization:
+
+sql
+Copy
+-- Optimize all tables
+SELECT CONCAT('OPTIMIZE TABLE ', TABLE_NAME, ';')
+FROM information_schema.TABLES
+WHERE TABLE_SCHEMA = 'maosix_management';
+Performance Review:
+
+sql
+Copy
+-- Check slow queries
+SELECT * FROM mysql.slow_log
+ORDER BY start_time DESC
+LIMIT 50;
+
+
+
+
+
+maosix-api/
+├── config/
+│   └── config.js          # Configuration files
+├── controllers/           # Route controllers
+│   ├── authController.js
+│   ├── procedureController.js
+│   ├── purchaseController.js
+│   └── userController.js
+├── middlewares/
+│   ├── authMiddleware.js   # Authentication middleware
+│   └── errorMiddleware.js  # Error handling middleware
+├── models/
+│   ├── index.js           # Sequelize models initialization
+│   ├── user.model.js
+│   ├── procedure.model.js
+│   ├── version.model.js
+│   ├── purchase.model.js
+│   └── audit.model.js
+├── routes/
+│   ├── auth.routes.js
+│   ├── procedure.routes.js
+│   ├── purchase.routes.js
+│   └── user.routes.js
+├── services/              # Business logic
+│   ├── auth.service.js
+│   └── user.service.js
+├── utils/                 # Utility functions
+│   ├── logger.js
+│   └── apiResponse.js
+├── .env                   # Environment variables
+├── app.js                 # Main application file
+└── server.js              # Server entry point
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
