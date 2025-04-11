@@ -28,15 +28,30 @@ const Home = () => {
       link: "/products#apiary",
     },
   ];
+  const heroImages = [
+    "/images/hero-bg1.jpg",
+    "/images/hero-bg1.jpg",
+    "/images/hero-bg1.jpg",
+  ];
 
   return (
     <>
       <Hero
         title="Millennium Association of Six"
         subtitle="Building sustainable businesses that empower communities"
-        backgroundImage="/images/hero-bg.jpg"
+        images={heroImages}
         ctaText="Explore Our Products"
         ctaLink="/products"
+        minHeight={{
+          base: "90vh", // Mobile
+          sm: "95vh", // Small devices
+          md: "100vh", // Medium devices
+          lg: "105vh", // Large devices
+          xl: "110vh", // Extra large
+        }}
+        titleSize={{ base: "2.5rem", md: "3.5rem" }}
+        subtitleSize={{ base: "1rem", md: "1.25rem" }}
+        interval={4000}
       />
 
       <section className="py-5">
@@ -47,7 +62,7 @@ const Home = () => {
           />
           <Row className="g-4">
             {products.map((product) => (
-              <Col key={product.id} md={4}>
+              <Col key={product.id} xs={12} sm={6} md={4}>
                 <ProductCard
                   title={product.title}
                   description={product.description}

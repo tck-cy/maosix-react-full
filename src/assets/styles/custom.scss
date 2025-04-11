@@ -15,13 +15,12 @@ body {
 }
 
 .hero-section {
-  height: 100vh;
-  min-height: 600px;
-  background-size: cover;
-  background-position: center;
   display: flex;
   align-items: center;
-  color: white;
+  justify-content: center;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
   position: relative;
   
   &::before {
@@ -36,6 +35,19 @@ body {
   
   .hero-content {
     position: relative;
+  z-index: 2;
+  color: white;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  }
+  .hero-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+    top: 0;
+    left: 0;
     z-index: 1;
   }
 }
@@ -77,4 +89,44 @@ body {
     height: auto;
     padding: 100px 0;
   }
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding-left: 30px;
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 30px;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -30px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #0d6efd;
+  border: 3px solid white;
+}
+
+.timeline-content {
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  position: relative;
+}
+
+.timeline-content:before {
+  content: '';
+  position: absolute;
+  top: 16px;
+  left: -8px;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 8px solid #f8f9fa;
 }

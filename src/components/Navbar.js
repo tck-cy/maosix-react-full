@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const NavigationBar = () => {
@@ -43,6 +43,17 @@ const NavigationBar = () => {
             >
               Contact
             </Nav.Link>
+          </Nav>
+          <Nav>
+            <Button
+              as={Link}
+              to="/login"
+              variant="outline-primary"
+              className="ms-2"
+            >
+              {" "}
+              Login{" "}
+            </Button>
           </Nav>
         </Navbar.Collapse>
       </Container>

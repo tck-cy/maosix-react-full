@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, Form, Button } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
@@ -60,9 +60,6 @@ const LoginPage = () => {
           Login
         </Button>
       </Form>
-      <p className="mt-3">
-        Don't have an account? <Link to="/register">Register</Link>
-      </p>
     </Container>
   );
 };
